@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{config.station}} - {% block title %}{% endblock %}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/">Status</a></li>
+            {% if config.logged_in %}
+              <li role="presentation"><a href="/config">Configure station</a></li>
+              <li role="presentation"><a href="/password">Change password</a></li>
+              <li role="presentation"><a href="/wifi">Configure WiFi</a></li>
+              <li role="presentation"><a href="/logout">Log out</a></li>
+            {% else %}
+              <li role="presentation"><a href="/login">Log in</a></li>
+            {% endif %}
+          </ul>
+      <a href="#" class="pull-left">
+        <img src="http://openglidernetwork.wdfiles.com/local--files/start/ogn-logo-150x150.png" />
+      </a>
+        </nav>
+      </div>
+
+      {% block body %}
+      {% endblock %}
+      <footer class="footer">
+        <p>Footer</p>
+      </footer>
+    </div> <!-- /container -->
+  </body>
+</html>

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Status - OGN{% endblock %}
+{% block body %}
+
+{% if pass_set == False %}
+<div class="alert alert-danger" role="alert">
+  <strong>WARNING</strong> Password remains set as default. It is highly recommended that you change it.
+</div>
+{% endif %}
+
+<table>
+<tr><td>Station:</td><td><b>{{config.station}}<b></td>
+<tr><td>Date:</td><td>{{config.datetime}}</td>
+<tr><td>Uptime:</td><td>{{config.uptime}}</td>
+<tr><td>Location:</td><td>{{config.location}}</td>
+<tr><td>Altitude:</td><td>{{config.alt}}m</td>
+<tr><td>Geoid separation:</td><td>{{config.geoidsep}}m</td>
+<tr><td>GSM Centre Frequency:</td><td>{{config.gsmfreq}}m</td>
+<tr><td>Gain:</td><td>{{config.gain}}m</td>
+</table>
+
+<p>
+  <a href="http://:8080/">RF processor info</a> |
+  <a href="http://:8081/">Decoder info</a>
+</p>
+
+{% endblock %}
